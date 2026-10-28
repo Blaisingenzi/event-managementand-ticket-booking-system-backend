@@ -1,0 +1,250 @@
+{
+  "info": {
+    "name": "event-managementand-ticket-booking-system-midterm",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "A1",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/api/event-types/all", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "all"] }
+      }
+    },
+    {
+      "name": "A2",
+      "item": [
+        {
+          "name": "POST /api/event-types/save",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "http://localhost:8080/api/event-types/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "save"] },
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Concert\"\n}" }
+          }
+        },
+        {
+          "name": "GET /api/event-types/all",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/event-types/all", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "all"] }
+          }
+        },
+        {
+          "name": "GET /api/event-types/{id}",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/event-types/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "00000000-0000-0000-0000-000000000000"] }
+          }
+        },
+        {
+          "name": "GET /api/event-types/{id} - 404",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/event-types/00000000-0000-0000-0000-000000000099", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "00000000-0000-0000-0000-000000000099"] }
+          }
+        },
+        {
+          "name": "PUT /api/event-types/update/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "http://localhost:8080/api/event-types/update/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "update", "00000000-0000-0000-0000-000000000000"] },
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Concert Updated\"\n}" }
+          }
+        },
+        {
+          "name": "DELETE /api/event-types/delete/{id} - 404",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "http://localhost:8080/api/event-types/delete/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "delete", "00000000-0000-0000-0000-000000000000"] }
+          }
+        },
+        {
+          "name": "POST /api/venues/save",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "http://localhost:8080/api/venues/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "save"] },
+            "body": { "mode": "raw", "raw": "{\n  \"hallNumber\": 1,\n  \"name\": \"Kigali Convention Centre\"\n}" }
+          }
+        },
+        {
+          "name": "GET /api/venues/all",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/venues/all", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "all"] }
+          }
+        },
+        {
+          "name": "GET /api/venues/{id}",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/venues/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "00000000-0000-0000-0000-000000000000"] }
+          }
+        },
+        {
+          "name": "GET /api/venues/{id} - 404",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/venues/00000000-0000-0000-0000-000000000099", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "00000000-0000-0000-0000-000000000099"] }
+          }
+        },
+        {
+          "name": "PUT /api/venues/update/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "http://localhost:8080/api/venues/update/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "update", "00000000-0000-0000-0000-000000000000"] },
+            "body": { "mode": "raw", "raw": "{\n  \"hallNumber\": 1,\n  \"name\": \"Kigali Convention Centre Updated\"\n}" }
+          }
+        },
+        {
+          "name": "DELETE /api/venues/delete/{id} - 404",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "http://localhost:8080/api/venues/delete/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "delete", "00000000-0000-0000-0000-000000000000"] }
+          }
+        },
+        {
+          "name": "POST /api/organizers/save",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "http://localhost:8080/api/organizers/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "save"] },
+            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"Alice\",\n  \"lastName\": \"Uwimana\",\n  \"company\": \"Events Rwanda\",\n  \"venue\": { \"id\": \"REPLACE_WITH_VENUE_ID\" }\n}" }
+          }
+        },
+        {
+          "name": "GET /api/organizers/all",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/organizers/all", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "all"] }
+          }
+        },
+        {
+          "name": "GET /api/organizers/{id}",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/organizers/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "00000000-0000-0000-0000-000000000000"] }
+          }
+        },
+        {
+          "name": "GET /api/organizers/{id} - 404",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/organizers/00000000-0000-0000-0000-000000000099", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "00000000-0000-0000-0000-000000000099"] }
+          }
+        },
+        {
+          "name": "PUT /api/organizers/update/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "http://localhost:8080/api/organizers/update/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "update", "00000000-0000-0000-0000-000000000000"] },
+            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"Alice\",\n  \"lastName\": \"Uwimana\",\n  \"company\": \"Events Rwanda Updated\",\n  \"venue\": { \"id\": \"REPLACE_WITH_VENUE_ID\" }\n}" }
+          }
+        },
+        {
+          "name": "DELETE /api/organizers/delete/{id} - 404",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "http://localhost:8080/api/organizers/delete/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "delete", "00000000-0000-0000-0000-000000000000"] }
+          }
+        },
+        {
+          "name": "POST /api/attendees/save",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "http://localhost:8080/api/attendees/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "save"] },
+            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"Aline\",\n  \"lastName\": \"Ishimwe\",\n  \"email\": \"aline@example.com\",\n  \"phone\": \"+250781000001\"\n}" }
+          }
+        },
+        {
+          "name": "GET /api/attendees/all",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/attendees/all", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "all"] }
+          }
+        },
+        {
+          "name": "GET /api/attendees/{id}",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/attendees/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "00000000-0000-0000-0000-000000000000"] }
+          }
+        },
+        {
+          "name": "GET /api/attendees/{id} - 404",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/attendees/00000000-0000-0000-0000-000000000099", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "00000000-0000-0000-0000-000000000099"] }
+          }
+        },
+        {
+          "name": "PUT /api/attendees/update/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "http://localhost:8080/api/attendees/update/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "update", "00000000-0000-0000-0000-000000000000"] },
+            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"Aline\",\n  \"lastName\": \"Ishimwe\",\n  \"email\": \"aline.updated@example.com\",\n  \"phone\": \"+250781000001\"\n}" }
+          }
+        },
+        {
+          "name": "DELETE /api/attendees/delete/{id} - 404",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "http://localhost:8080/api/attendees/delete/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "delete", "00000000-0000-0000-0000-000000000000"] }
+          }
+        },
+        {
+          "name": "POST /api/ticket-bookings/save",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "http://localhost:8080/api/ticket-bookings/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "save"] },
+            "body": { "mode": "raw", "raw": "{\n  \"showName\": \"Kigali Music Fest\",\n  \"showDate\": \"2026-10-15\",\n  \"seats\": 2,\n  \"status\": \"PENDING\",\n  \"attendee\": { \"id\": \"REPLACE_WITH_ATTENDEE_ID\" },\n  \"organizer\": { \"id\": \"REPLACE_WITH_ORGANIZER_ID\" }\n}" }
+          }
+        },
+        {
+          "name": "GET /api/ticket-bookings/all",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/ticket-bookings/all", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "all"] }
+          }
+        },
+        {
+          "name": "GET /api/ticket-bookings/{id}",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/ticket-bookings/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "00000000-0000-0000-0000-000000000000"] }
+          }
+        },
+        {
+          "name": "GET /api/ticket-bookings/{id} - 404",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:8080/api/ticket-bookings/00000000-0000-0000-0000-000000000099", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "00000000-0000-0000-0000-000000000099"] }
+          }
+        },
+        {
+          "name": "PUT /api/ticket-bookings/update/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "http://localhost:8080/api/ticket-bookings/update/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "update", "00000000-0000-0000-0000-000000000000"] },
+            "body": { "mode": "raw", "raw": "{\n  \"showName\": \"Kigali Music Fest Updated\",\n  \"showDate\": \"2026-10-16\",\n  \"seats\": 3,\n  \"attendee\": { \"id\": \"REPLACE_WITH_ATTENDEE_ID\" },\n  \"organizer\": { \"id\": \"REPLACE_WITH_ORGANIZER_ID\" }\n}" }
+          }
+        },
+        {
+          "name": "DELETE /api/ticket-bookings/delete/{id} - 404",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "http://localhost:8080/api/ticket-bookings/delete/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "delete", "00000000-0000-0000-0000-000000000000"] }
+          }
+        }
+      ]
+    }
+  ]
+}
