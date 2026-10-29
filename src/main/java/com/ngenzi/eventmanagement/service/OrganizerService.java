@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ngenzi.eventmanagement.entity.Attendee;
 import com.ngenzi.eventmanagement.entity.Organizer;
 import com.ngenzi.eventmanagement.repository.OrganizerRepository;
 
@@ -45,5 +46,14 @@ public class OrganizerService {
         if (organizerRepository.findById(id).isEmpty()) return "The organizer with that id does not exist";
         organizerRepository.deleteById(id);
         return "Organizer deleted successfully";
+    }
+
+    public List<Organizer> getOrganizersByEventType(String name) {
+        return organizerRepository.findByEventTypeName(name);
+    }
+
+    public Object getAttendeesByOrganizer(UUID organizerId) {
+        if (organizerRepository.findById(organizerId).isEmpty()) return "The organizer with that id does not exist";
+        return organizerRepository.findAttendeesByOrganizerId(organizerId);
     }
 }

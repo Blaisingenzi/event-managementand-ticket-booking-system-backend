@@ -39,9 +39,7 @@ public class VenueService {
         return "Venue updated successfully";
     }
 
-    public String deleteVenue(UUID id) {
-        if (venueRepository.findById(id).isEmpty()) return "The venue with that id does not exist";
-        venueRepository.deleteById(id);
-        return "Venue deleted successfully";
+    public List<Venue> getFreeVenues() {
+        return venueRepository.findFreeVenues();
     }
 }

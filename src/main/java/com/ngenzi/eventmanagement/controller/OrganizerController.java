@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ngenzi.eventmanagement.entity.Organizer;
@@ -54,5 +55,10 @@ public class OrganizerController {
         String message = organizerService.deleteOrganizer(id);
         if (message.equals("Organizer deleted successfully")) return new ResponseEntity<>(message, HttpStatus.OK);
         return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/by-event-type")
+    public ResponseEntity<List<Organizer>> getOrganizersByEventType(@RequestParam String name) {
+        return new ResponseEntity<>(organizerService.getOrganizersByEventType(name), HttpStatus.OK);
     }
 }

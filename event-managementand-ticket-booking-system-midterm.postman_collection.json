@@ -266,6 +266,34 @@
         "method": "GET",
         "url": { "raw": "http://localhost:8080/api/ticket-bookings/between?start=2026-10-01&end=2026-10-31", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "between"], "query": [{ "key": "start", "value": "2026-10-01" }, { "key": "end", "value": "2026-10-31" }] }
       }
+    },
+    {
+      "name": "C1",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/api/organizers/by-event-type?name=concert", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "by-event-type"], "query": [{ "key": "name", "value": "concert" }] }
+      }
+    },
+    {
+      "name": "C2",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/api/venues/free", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "free"] }
+      }
+    },
+    {
+      "name": "C3",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/api/event-types/unused", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "unused"] }
+      }
+    },
+    {
+      "name": "C4",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/api/attendees/of-organizer/a775434d-9876-42f0-9b39-160dfd6defc7", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "of-organizer", "a775434d-9876-42f0-9b39-160dfd6defc7"] }
+      }
     }
   ]
 }

@@ -55,4 +55,9 @@ public class VenueController {
         if (message.equals("Venue deleted successfully")) return new ResponseEntity<>(message, HttpStatus.OK);
         return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
     }
+
+    @GetMapping("/free")
+    public ResponseEntity<List<Venue>> getFreeVenues() {
+        return new ResponseEntity<>(venueService.getFreeVenues(), HttpStatus.OK);
+    }
 }

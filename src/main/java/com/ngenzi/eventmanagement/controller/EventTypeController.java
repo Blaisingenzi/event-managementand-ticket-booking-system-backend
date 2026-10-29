@@ -55,4 +55,9 @@ public class EventTypeController {
         if (message.equals("Event type deleted successfully")) return new ResponseEntity<>(message, HttpStatus.OK);
         return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
     }
+
+    @GetMapping("/unused")
+    public ResponseEntity<List<EventType>> getUnusedEventTypes() {
+        return new ResponseEntity<>(eventTypeService.getUnusedEventTypes(), HttpStatus.OK);
+    }
 }

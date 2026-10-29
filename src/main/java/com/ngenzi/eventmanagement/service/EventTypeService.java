@@ -38,9 +38,7 @@ public class EventTypeService {
         return "Event type updated successfully";
     }
 
-    public String deleteEventType(UUID id) {
-        if (eventTypeRepository.findById(id).isEmpty()) return "The event type with that id does not exist";
-        eventTypeRepository.deleteById(id);
-        return "Event type deleted successfully";
+    public List<EventType> getUnusedEventTypes() {
+        return eventTypeRepository.findUnusedEventTypes();
     }
 }
