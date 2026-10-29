@@ -324,6 +324,29 @@
         "method": "PATCH",
         "url": { "raw": "http://localhost:8080/api/organizers/4f78b89c-1f87-465c-9a86-d5e02ed801d4/venue?hallNumber=4", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "4f78b89c-1f87-465c-9a86-d5e02ed801d4", "venue"], "query": [{ "key": "hallNumber", "value": "4" }] }
       }
+    },
+    {
+      "name": "E1",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8080/api/tickets/save?ticketBookingId=1cf23e5c-92c9-48ba-9ebf-9c700dad8b50", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "tickets", "save"], "query": [{ "key": "ticketBookingId", "value": "1cf23e5c-92c9-48ba-9ebf-9c700dad8b50" }] },
+        "body": { "mode": "raw", "raw": "{\n  \"ticketClass\": \"VIP\",\n  \"seatInfo\": \"Row A seat 12\",\n  \"priceRwf\": 50000\n}" }
+      }
+    },
+    {
+      "name": "E2",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/api/tickets/attendee/aline@example.com", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "tickets", "attendee", "aline@example.com"] }
+      }
+    },
+    {
+      "name": "E3",
+      "request": {
+        "method": "DELETE",
+        "url": { "raw": "http://localhost:8080/api/tickets/delete/f83ebecd-6ed9-4a54-8128-d326652822c4", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "tickets", "delete", "f83ebecd-6ed9-4a54-8128-d326652822c4"] }
+      }
     }
   ]
 }

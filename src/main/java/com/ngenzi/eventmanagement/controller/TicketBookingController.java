@@ -60,6 +60,7 @@ public class TicketBookingController {
     public ResponseEntity<?> deleteTicketBooking(@PathVariable UUID id) {
         String message = ticketBookingService.deleteTicketBooking(id);
         if (message.equals("Ticket booking deleted successfully")) return new ResponseEntity<>(message, HttpStatus.OK);
+        if (message.equals("That ticket booking has tickets, delete them first")) return new ResponseEntity<>(message, HttpStatus.CONFLICT);
         return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
     }
 

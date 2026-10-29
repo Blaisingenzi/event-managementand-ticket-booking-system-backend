@@ -11,12 +11,16 @@ import org.springframework.stereotype.Service;
 import com.ngenzi.eventmanagement.entity.BookingStatus;
 import com.ngenzi.eventmanagement.entity.TicketBooking;
 import com.ngenzi.eventmanagement.repository.TicketBookingRepository;
+import com.ngenzi.eventmanagement.repository.TicketRepository;
 
 @Service
 public class TicketBookingService {
 
     @Autowired
     private TicketBookingRepository ticketBookingRepository;
+
+    @Autowired
+    private TicketRepository ticketRepository;
 
     public String saveTicketBooking(TicketBooking ticketBooking) {
         if (ticketBooking.getShowDate().isBefore(LocalDate.now()))
@@ -63,7 +67,9 @@ public class TicketBookingService {
     }
 
     public String deleteTicketBooking(UUID id) {
-        if (ticketBookingRepository.findById(id).isEmpty()) return "The ticket booking with that id does not exist";
+        Optional<TicketBooking> existing = ticketBookingRepository.findById(id);
+        if (existing.isEmpty()) return "The ticket booking with that id does not exist";
+        if (ticketRepository.existsByTicketBooking(existing.get())) return "That ticket booking has tickets, delete them first";
         ticketBookingRepository.deleteById(id);
         return "Ticket booking deleted successfully";
     }
