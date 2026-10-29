@@ -46,4 +46,8 @@ public class AttendeeService {
         attendeeRepository.deleteById(id);
         return "Attendee deleted successfully";
     }
+
+    public List<Attendee> getAttendeesByLastName(String lastName) {
+        return attendeeRepository.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
+    }
 }

@@ -1,5 +1,6 @@
 package com.ngenzi.eventmanagement.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -7,6 +8,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ngenzi.eventmanagement.entity.BookingStatus;
 import com.ngenzi.eventmanagement.entity.TicketBooking;
 import com.ngenzi.eventmanagement.repository.TicketBookingRepository;
 
@@ -46,5 +48,13 @@ public class TicketBookingService {
         if (ticketBookingRepository.findById(id).isEmpty()) return "The ticket booking with that id does not exist";
         ticketBookingRepository.deleteById(id);
         return "Ticket booking deleted successfully";
+    }
+
+    public List<TicketBooking> getTicketBookingsByStatus(BookingStatus status) {
+        return ticketBookingRepository.findByStatusOrderByShowDateAsc(status);
+    }
+
+    public List<TicketBooking> getTicketBookingsBetween(LocalDate start, LocalDate end) {
+        return ticketBookingRepository.findByShowDateBetweenOrderByShowDateAsc(start, end);
     }
 }
