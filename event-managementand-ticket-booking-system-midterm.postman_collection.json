@@ -347,6 +347,20 @@
         "method": "DELETE",
         "url": { "raw": "http://localhost:8080/api/tickets/delete/f83ebecd-6ed9-4a54-8128-d326652822c4", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "tickets", "delete", "f83ebecd-6ed9-4a54-8128-d326652822c4"] }
       }
+    },
+    {
+      "name": "F1",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/api/ticket-bookings/stats/by-status", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "stats", "by-status"] }
+      }
+    },
+    {
+      "name": "F2",
+      "request": {
+        "method": "PATCH",
+        "url": { "raw": "http://localhost:8080/api/ticket-bookings/cancel-day?organizerId=a775434d-9876-42f0-9b39-160dfd6defc7&date=2026-10-20", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "cancel-day"], "query": [{ "key": "organizerId", "value": "a775434d-9876-42f0-9b39-160dfd6defc7" }, { "key": "date", "value": "2026-10-20" }] }
+      }
     }
   ]
 }

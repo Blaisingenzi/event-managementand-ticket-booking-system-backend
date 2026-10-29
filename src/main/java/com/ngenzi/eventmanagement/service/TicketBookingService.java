@@ -81,4 +81,14 @@ public class TicketBookingService {
     public List<TicketBooking> getTicketBookingsBetween(LocalDate start, LocalDate end) {
         return ticketBookingRepository.findByShowDateBetweenOrderByShowDateAsc(start, end);
     }
+
+    public List<Object[]> getBookingsCountByStatus() {
+        return ticketBookingRepository.countByStatus();
+    }
+
+    @org.springframework.transaction.annotation.Transactional
+    public String cancelByOrganizerAndDate(UUID organizerId, LocalDate date) {
+        int count = ticketBookingRepository.cancelByOrganizerAndDate(organizerId, date);
+        return count + " ticket bookings cancelled";
+    }
 }

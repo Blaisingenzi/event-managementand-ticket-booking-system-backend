@@ -81,4 +81,14 @@ public class TicketBookingController {
         if (message.equals("The ticket booking with that id does not exist")) return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping("/stats/by-status")
+    public ResponseEntity<List<Object[]>> getBookingsCountByStatus() {
+        return new ResponseEntity<>(ticketBookingService.getBookingsCountByStatus(), HttpStatus.OK);
+    }
+
+    @PatchMapping("/cancel-day")
+    public ResponseEntity<?> cancelByOrganizerAndDate(@RequestParam UUID organizerId, @RequestParam String date) {
+        return new ResponseEntity<>(ticketBookingService.cancelByOrganizerAndDate(organizerId, LocalDate.parse(date)), HttpStatus.OK);
+    }
 }
