@@ -19,6 +19,12 @@ public class TicketBookingService {
     private TicketBookingRepository ticketBookingRepository;
 
     public String saveTicketBooking(TicketBooking ticketBooking) {
+        if (ticketBooking.getShowDate().isBefore(LocalDate.now()))
+            return "Ticket booking date cannot be in the past";
+        if (ticketBookingRepository.existsByOrganizerIdAndShowDateAndStatusNot(
+                ticketBooking.getOrganizer().getId(), ticketBooking.getShowDate(), BookingStatus.CANCELLED))
+            return "Organizer already has a show booked on that date";
+        ticketBooking.setStatus(BookingStatus.PENDING);
         ticketBookingRepository.save(ticketBooking);
         return "Ticket booking saved successfully";
     }
@@ -42,6 +48,18 @@ public class TicketBookingService {
         ticketBooking.setOrganizer(updated.getOrganizer());
         ticketBookingRepository.save(ticketBooking);
         return "Ticket booking updated successfully";
+    }
+
+    public String updateTicketBookingStatus(UUID id, BookingStatus newStatus) {
+        Optional<TicketBooking> existing = ticketBookingRepository.findById(id);
+        if (existing.isEmpty()) return "The ticket booking with that id does not exist";
+        BookingStatus current = existing.get().getStatus();
+        boolean allowed = (current == BookingStatus.PENDING && (newStatus == BookingStatus.RESERVED || newStatus == BookingStatus.CANCELLED))
+                || (current == BookingStatus.RESERVED && (newStatus == BookingStatus.PAID || newStatus == BookingStatus.CANCELLED));
+        if (!allowed) return "Cannot change status from " + current + " to " + newStatus;
+        existing.get().setStatus(newStatus);
+        ticketBookingRepository.save(existing.get());
+        return "Ticket booking status updated successfully";
     }
 
     public String deleteTicketBooking(UUID id) {

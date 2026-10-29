@@ -19,4 +19,6 @@ public interface OrganizerRepository extends JpaRepository<Organizer, UUID> {
 
     @Query("SELECT DISTINCT tb.attendee FROM TicketBooking tb WHERE tb.organizer.id = :organizerId")
     List<com.ngenzi.eventmanagement.entity.Attendee> findAttendeesByOrganizerId(@Param("organizerId") UUID organizerId);
+
+    boolean existsByVenueId(UUID venueId);
 }

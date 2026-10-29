@@ -294,6 +294,36 @@
         "method": "GET",
         "url": { "raw": "http://localhost:8080/api/attendees/of-organizer/a775434d-9876-42f0-9b39-160dfd6defc7", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "of-organizer", "a775434d-9876-42f0-9b39-160dfd6defc7"] }
       }
+    },
+    {
+      "name": "D1",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8080/api/ticket-bookings/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "save"] },
+        "body": { "mode": "raw", "raw": "{\n  \"showName\": \"Future Show\",\n  \"showDate\": \"2027-06-01\",\n  \"seats\": 2,\n  \"attendee\": { \"id\": \"f2fff814-c690-4284-af84-9026104961b0\" },\n  \"organizer\": { \"id\": \"a775434d-9876-42f0-9b39-160dfd6defc7\" }\n}" }
+      }
+    },
+    {
+      "name": "D2",
+      "request": {
+        "method": "PATCH",
+        "url": { "raw": "http://localhost:8080/api/ticket-bookings/eda1d1f1-9c80-41e7-8d68-9f76522c1811/status?status=PAID", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "eda1d1f1-9c80-41e7-8d68-9f76522c1811", "status"], "query": [{ "key": "status", "value": "PAID" }] }
+      }
+    },
+    {
+      "name": "D3",
+      "request": {
+        "method": "PUT",
+        "url": { "raw": "http://localhost:8080/api/organizers/4f78b89c-1f87-465c-9a86-d5e02ed801d4/event-types/0ee1e575-87fa-4854-bd78-e83a1e747cf4", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "4f78b89c-1f87-465c-9a86-d5e02ed801d4", "event-types", "0ee1e575-87fa-4854-bd78-e83a1e747cf4"] }
+      }
+    },
+    {
+      "name": "D4",
+      "request": {
+        "method": "PATCH",
+        "url": { "raw": "http://localhost:8080/api/organizers/4f78b89c-1f87-465c-9a86-d5e02ed801d4/venue?hallNumber=4", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "4f78b89c-1f87-465c-9a86-d5e02ed801d4", "venue"], "query": [{ "key": "hallNumber", "value": "4" }] }
+      }
     }
   ]
 }

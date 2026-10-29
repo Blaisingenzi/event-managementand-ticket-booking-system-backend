@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -30,7 +31,10 @@ public class TicketBookingController {
 
     @PostMapping("/save")
     public ResponseEntity<?> saveTicketBooking(@RequestBody TicketBooking ticketBooking) {
-        return new ResponseEntity<>(ticketBookingService.saveTicketBooking(ticketBooking), HttpStatus.CREATED);
+        String message = ticketBookingService.saveTicketBooking(ticketBooking);
+        if (message.equals("Ticket booking saved successfully")) return new ResponseEntity<>(message, HttpStatus.CREATED);
+        if (message.equals("Organizer already has a show booked on that date")) return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("/all")
@@ -67,5 +71,13 @@ public class TicketBookingController {
     @GetMapping("/between")
     public ResponseEntity<List<TicketBooking>> getTicketBookingsBetween(@RequestParam String start, @RequestParam String end) {
         return new ResponseEntity<>(ticketBookingService.getTicketBookingsBetween(LocalDate.parse(start), LocalDate.parse(end)), HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<?> updateTicketBookingStatus(@PathVariable UUID id, @RequestParam BookingStatus status) {
+        String message = ticketBookingService.updateTicketBookingStatus(id, status);
+        if (message.equals("Ticket booking status updated successfully")) return new ResponseEntity<>(message, HttpStatus.OK);
+        if (message.equals("The ticket booking with that id does not exist")) return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
     }
 }

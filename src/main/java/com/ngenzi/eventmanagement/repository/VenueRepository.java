@@ -3,6 +3,7 @@ package com.ngenzi.eventmanagement.repository;
 import java.util.UUID;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -15,4 +16,6 @@ public interface VenueRepository extends JpaRepository<Venue, UUID> {
 
     @Query("SELECT v FROM Venue v WHERE NOT EXISTS (SELECT o FROM Organizer o WHERE o.venue = v) ORDER BY v.hallNumber")
     List<Venue> findFreeVenues();
+
+    Optional<Venue> findByHallNumber(int hallNumber);
 }

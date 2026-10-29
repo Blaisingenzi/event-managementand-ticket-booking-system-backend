@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -60,5 +61,21 @@ public class OrganizerController {
     @GetMapping("/by-event-type")
     public ResponseEntity<List<Organizer>> getOrganizersByEventType(@RequestParam String name) {
         return new ResponseEntity<>(organizerService.getOrganizersByEventType(name), HttpStatus.OK);
+    }
+
+    @PutMapping("/{organizerId}/event-types/{eventTypeId}")
+    public ResponseEntity<?> addEventTypeToOrganizer(@PathVariable UUID organizerId, @PathVariable UUID eventTypeId) {
+        String message = organizerService.addEventTypeToOrganizer(organizerId, eventTypeId);
+        if (message.equals("Event type added to the organizer")) return new ResponseEntity<>(message, HttpStatus.OK);
+        if (message.equals("The organizer already has that event type")) return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+        return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+    }
+
+    @PatchMapping("/{organizerId}/venue")
+    public ResponseEntity<?> moveOrganizerToVenue(@PathVariable UUID organizerId, @RequestParam int hallNumber) {
+        String message = organizerService.moveOrganizerToVenue(organizerId, hallNumber);
+        if (message.equals("Venue changed successfully")) return new ResponseEntity<>(message, HttpStatus.OK);
+        if (message.equals("That venue is taken by another organizer")) return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+        return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
     }
 }
