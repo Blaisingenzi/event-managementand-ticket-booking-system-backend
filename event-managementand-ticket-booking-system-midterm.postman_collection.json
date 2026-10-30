@@ -1,7 +1,10 @@
 {
   "info": {
+    "_postman_id": "bbbdd273-c934-4ec0-a521-029bac46b3b9",
     "name": "event-managementand-ticket-booking-system-midterm",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58462784",
+    "_collection_link": "https://go.postman.co/collection/58462784-bbbdd273-c934-4ec0-a521-029bac46b3b9?source=collection_link"
   },
   "item": [
     {
@@ -11,231 +14,736 @@
           "name": "A2 - save event type",
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "http://localhost:8080/api/event-types/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "save"] },
-            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Concert\"\n}" }
-          }
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Concert\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/event-types/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "event-types",
+                "save"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get all event types",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/event-types/all", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "all"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/event-types/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "event-types",
+                "all"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get event type by id",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/event-types/0ee1e575-87fa-4854-bd78-e83a1e747cf4", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "0ee1e575-87fa-4854-bd78-e83a1e747cf4"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/event-types/0ee1e575-87fa-4854-bd78-e83a1e747cf4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "event-types",
+                "0ee1e575-87fa-4854-bd78-e83a1e747cf4"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get event type by id 404",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/event-types/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "00000000-0000-0000-0000-000000000000"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/event-types/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "event-types",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - update event type",
           "request": {
             "method": "PUT",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "http://localhost:8080/api/event-types/update/0ee1e575-87fa-4854-bd78-e83a1e747cf4", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "update", "0ee1e575-87fa-4854-bd78-e83a1e747cf4"] },
-            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Concert Updated\"\n}" }
-          }
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Concert Updated\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/event-types/update/0ee1e575-87fa-4854-bd78-e83a1e747cf4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "event-types",
+                "update",
+                "0ee1e575-87fa-4854-bd78-e83a1e747cf4"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - delete event type 404",
           "request": {
             "method": "DELETE",
-            "url": { "raw": "http://localhost:8080/api/event-types/delete/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "delete", "00000000-0000-0000-0000-000000000000"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/event-types/delete/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "event-types",
+                "delete",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - save venue",
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "http://localhost:8080/api/venues/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "save"] },
-            "body": { "mode": "raw", "raw": "{\n  \"hallNumber\": 1,\n  \"name\": \"Kigali Arena\"\n}" }
-          }
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hallNumber\": 1,\n  \"name\": \"Kigali Arena\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/venues/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "venues",
+                "save"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get all venues",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/venues/all", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "all"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/venues/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "venues",
+                "all"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get venue by id",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/venues/c453bcc6-2fdf-4a0c-91dc-0aa0f349ee0d", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "c453bcc6-2fdf-4a0c-91dc-0aa0f349ee0d"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/venues/c453bcc6-2fdf-4a0c-91dc-0aa0f349ee0d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "venues",
+                "c453bcc6-2fdf-4a0c-91dc-0aa0f349ee0d"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get venue by id 404",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/venues/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "00000000-0000-0000-0000-000000000000"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/venues/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "venues",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - update venue",
           "request": {
             "method": "PUT",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "http://localhost:8080/api/venues/update/cc355255-7a25-495d-983e-efe02755f9c0", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "update", "cc355255-7a25-495d-983e-efe02755f9c0"] },
-            "body": { "mode": "raw", "raw": "{\n  \"hallNumber\": 4,\n  \"name\": \"Amahoro Stadium Updated\"\n}" }
-          }
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hallNumber\": 4,\n  \"name\": \"Amahoro Stadium Updated\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/venues/update/cc355255-7a25-495d-983e-efe02755f9c0",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "venues",
+                "update",
+                "cc355255-7a25-495d-983e-efe02755f9c0"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - delete venue 404",
           "request": {
             "method": "DELETE",
-            "url": { "raw": "http://localhost:8080/api/venues/delete/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "delete", "00000000-0000-0000-0000-000000000000"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/venues/delete/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "venues",
+                "delete",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - save organizer",
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "http://localhost:8080/api/organizers/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "save"] },
-            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"Alice\",\n  \"lastName\": \"Mutoni\",\n  \"company\": \"EventPro Ltd\",\n  \"venue\": { \"id\": \"c453bcc6-2fdf-4a0c-91dc-0aa0f349ee0d\" }\n}" }
-          }
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Alice\",\n  \"lastName\": \"Mutoni\",\n  \"company\": \"EventPro Ltd\",\n  \"venue\": { \"id\": \"c453bcc6-2fdf-4a0c-91dc-0aa0f349ee0d\" }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/organizers/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "organizers",
+                "save"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get all organizers",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/organizers/all", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "all"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/organizers/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "organizers",
+                "all"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get organizer by id",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/organizers/a775434d-9876-42f0-9b39-160dfd6defc7", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "a775434d-9876-42f0-9b39-160dfd6defc7"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/organizers/a775434d-9876-42f0-9b39-160dfd6defc7",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "organizers",
+                "a775434d-9876-42f0-9b39-160dfd6defc7"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get organizer by id 404",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/organizers/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "00000000-0000-0000-0000-000000000000"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/organizers/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "organizers",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - update organizer",
           "request": {
             "method": "PUT",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "http://localhost:8080/api/organizers/update/905a8828-d0ac-45fb-81e8-ab51ef51f904", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "update", "905a8828-d0ac-45fb-81e8-ab51ef51f904"] },
-            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"Bob\",\n  \"lastName\": \"Nkurunziza\",\n  \"company\": \"ShowTime Rwanda Updated\",\n  \"venue\": { \"id\": \"62576ff1-4f71-4020-849d-21c5548edafa\" }\n}" }
-          }
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Bob\",\n  \"lastName\": \"Nkurunziza\",\n  \"company\": \"ShowTime Rwanda Updated\",\n  \"venue\": { \"id\": \"62576ff1-4f71-4020-849d-21c5548edafa\" }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/organizers/update/905a8828-d0ac-45fb-81e8-ab51ef51f904",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "organizers",
+                "update",
+                "905a8828-d0ac-45fb-81e8-ab51ef51f904"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - delete organizer 404",
           "request": {
             "method": "DELETE",
-            "url": { "raw": "http://localhost:8080/api/organizers/delete/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "delete", "00000000-0000-0000-0000-000000000000"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/organizers/delete/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "organizers",
+                "delete",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - save attendee",
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "http://localhost:8080/api/attendees/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "save"] },
-            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"Aline\",\n  \"lastName\": \"Ishimwe\",\n  \"email\": \"aline@example.com\",\n  \"phone\": \"0781000001\"\n}" }
-          }
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Aline\",\n  \"lastName\": \"Ishimwe\",\n  \"email\": \"aline.ishimwe@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/attendees/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "attendees",
+                "save"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get all attendees",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/attendees/all", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "all"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/attendees/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "attendees",
+                "all"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get attendee by id",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/attendees/f2fff814-c690-4284-af84-9026104961b0", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "f2fff814-c690-4284-af84-9026104961b0"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/attendees/f2fff814-c690-4284-af84-9026104961b0",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "attendees",
+                "f2fff814-c690-4284-af84-9026104961b0"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get attendee by id 404",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/attendees/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "00000000-0000-0000-0000-000000000000"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/attendees/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "attendees",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - update attendee",
           "request": {
             "method": "PUT",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "http://localhost:8080/api/attendees/update/34aaf6a9-f35f-4da6-8e60-fd5fc565b196", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "update", "34aaf6a9-f35f-4da6-8e60-fd5fc565b196"] },
-            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"David\",\n  \"lastName\": \"Habimana\",\n  \"email\": \"david.updated@example.com\",\n  \"phone\": \"0781000004\"\n}" }
-          }
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"David\",\n  \"lastName\": \"Habimana\",\n  \"email\": \"david.updated@example.com\",\n  \"phone\": \"0781000004\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/attendees/update/34aaf6a9-f35f-4da6-8e60-fd5fc565b196",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "attendees",
+                "update",
+                "34aaf6a9-f35f-4da6-8e60-fd5fc565b196"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - delete attendee 404",
           "request": {
             "method": "DELETE",
-            "url": { "raw": "http://localhost:8080/api/attendees/delete/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "delete", "00000000-0000-0000-0000-000000000000"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/attendees/delete/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "attendees",
+                "delete",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - save ticket booking",
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "http://localhost:8080/api/ticket-bookings/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "save"] },
-            "body": { "mode": "raw", "raw": "{\n  \"showName\": \"Kigali Music Fest\",\n  \"showDate\": \"2026-12-01\",\n  \"seats\": 2,\n  \"attendee\": { \"id\": \"f2fff814-c690-4284-af84-9026104961b0\" },\n  \"organizer\": { \"id\": \"a775434d-9876-42f0-9b39-160dfd6defc7\" }\n}" }
-          }
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"showName\": \"Kigali Music Fest\",\n  \"showDate\": \"2026-12-01\",\n  \"seats\": 2,\n  \"attendee\": { \"id\": \"f2fff814-c690-4284-af84-9026104961b0\" },\n  \"organizer\": { \"id\": \"a775434d-9876-42f0-9b39-160dfd6defc7\" }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/ticket-bookings/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "ticket-bookings",
+                "save"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get all ticket bookings",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/ticket-bookings/all", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "all"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/ticket-bookings/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "ticket-bookings",
+                "all"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get ticket booking by id",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/ticket-bookings/eda1d1f1-9c80-41e7-8d68-9f76522c1811", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "eda1d1f1-9c80-41e7-8d68-9f76522c1811"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/ticket-bookings/eda1d1f1-9c80-41e7-8d68-9f76522c1811",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "ticket-bookings",
+                "eda1d1f1-9c80-41e7-8d68-9f76522c1811"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - get ticket booking by id 404",
           "request": {
             "method": "GET",
-            "url": { "raw": "http://localhost:8080/api/ticket-bookings/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "00000000-0000-0000-0000-000000000000"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/ticket-bookings/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "ticket-bookings",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - update ticket booking",
           "request": {
             "method": "PUT",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "http://localhost:8080/api/ticket-bookings/update/55984cc3-f05e-4955-9e9e-0388da4f1301", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "update", "55984cc3-f05e-4955-9e9e-0388da4f1301"] },
-            "body": { "mode": "raw", "raw": "{\n  \"showName\": \"Startup Summit Updated\",\n  \"showDate\": \"2026-11-02\",\n  \"seats\": 3,\n  \"attendee\": { \"id\": \"34aaf6a9-f35f-4da6-8e60-fd5fc565b196\" },\n  \"organizer\": { \"id\": \"a775434d-9876-42f0-9b39-160dfd6defc7\" }\n}" }
-          }
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"showName\": \"Startup Summit Updated\",\n  \"showDate\": \"2026-11-02\",\n  \"seats\": 3,\n  \"attendee\": { \"id\": \"34aaf6a9-f35f-4da6-8e60-fd5fc565b196\" },\n  \"organizer\": { \"id\": \"a775434d-9876-42f0-9b39-160dfd6defc7\" }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/ticket-bookings/update/55984cc3-f05e-4955-9e9e-0388da4f1301",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "ticket-bookings",
+                "update",
+                "55984cc3-f05e-4955-9e9e-0388da4f1301"
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "A2 - delete ticket booking 404",
           "request": {
             "method": "DELETE",
-            "url": { "raw": "http://localhost:8080/api/ticket-bookings/delete/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "delete", "00000000-0000-0000-0000-000000000000"] }
-          }
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/ticket-bookings/delete/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "ticket-bookings",
+                "delete",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },
@@ -243,184 +751,664 @@
       "name": "B1",
       "request": {
         "method": "GET",
-        "url": { "raw": "http://localhost:8080/api/attendees/by-last-name?lastName=ishimwe", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "by-last-name"], "query": [{ "key": "lastName", "value": "ishimwe" }] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/attendees/by-last-name?lastName=ishimwe",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "attendees",
+            "by-last-name"
+          ],
+          "query": [
+            {
+              "key": "lastName",
+              "value": "ishimwe"
+            }
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "B2",
       "request": {
         "method": "GET",
-        "url": { "raw": "http://localhost:8080/api/ticket-bookings/by-status?status=PENDING", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "by-status"], "query": [{ "key": "status", "value": "PENDING" }] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket-bookings/by-status?status=PENDING",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket-bookings",
+            "by-status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "PENDING"
+            }
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "B3",
       "request": {
         "method": "GET",
-        "url": { "raw": "http://localhost:8080/api/ticket-bookings/between?start=2026-10-01&end=2026-10-31", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "between"], "query": [{ "key": "start", "value": "2026-10-01" }, { "key": "end", "value": "2026-10-31" }] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket-bookings/between?start=2026-10-01&end=2026-10-31",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket-bookings",
+            "between"
+          ],
+          "query": [
+            {
+              "key": "start",
+              "value": "2026-10-01"
+            },
+            {
+              "key": "end",
+              "value": "2026-10-31"
+            }
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "C1",
       "request": {
         "method": "GET",
-        "url": { "raw": "http://localhost:8080/api/organizers/by-event-type?name=concert", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "by-event-type"], "query": [{ "key": "name", "value": "concert" }] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/organizers/by-event-type?name=concert",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "organizers",
+            "by-event-type"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "concert"
+            }
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "C2",
       "request": {
         "method": "GET",
-        "url": { "raw": "http://localhost:8080/api/venues/free", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "venues", "free"] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/venues/free",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "venues",
+            "free"
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "C3",
       "request": {
         "method": "GET",
-        "url": { "raw": "http://localhost:8080/api/event-types/unused", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "event-types", "unused"] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/event-types/unused",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "event-types",
+            "unused"
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "C4",
       "request": {
         "method": "GET",
-        "url": { "raw": "http://localhost:8080/api/attendees/of-organizer/a775434d-9876-42f0-9b39-160dfd6defc7", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "of-organizer", "a775434d-9876-42f0-9b39-160dfd6defc7"] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/attendees/of-organizer/a775434d-9876-42f0-9b39-160dfd6defc7",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "attendees",
+            "of-organizer",
+            "a775434d-9876-42f0-9b39-160dfd6defc7"
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "C4 - unknown organizer 404",
       "request": {
         "method": "GET",
-        "url": { "raw": "http://localhost:8080/api/attendees/of-organizer/00000000-0000-0000-0000-000000000000", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "attendees", "of-organizer", "00000000-0000-0000-0000-000000000000"] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/attendees/of-organizer/00000000-0000-0000-0000-000000000000",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "attendees",
+            "of-organizer",
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "D1",
       "request": {
         "method": "POST",
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
-        "url": { "raw": "http://localhost:8080/api/ticket-bookings/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "save"] },
-        "body": { "mode": "raw", "raw": "{\n  \"showName\": \"Future Show\",\n  \"showDate\": \"2027-06-01\",\n  \"seats\": 2,\n  \"attendee\": { \"id\": \"f2fff814-c690-4284-af84-9026104961b0\" },\n  \"organizer\": { \"id\": \"a775434d-9876-42f0-9b39-160dfd6defc7\" }\n}" }
-      }
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"showName\": \"Future Show\",\n  \"showDate\": \"2027-06-01\",\n  \"seats\": 2,\n  \"attendee\": { \"id\": \"f2fff814-c690-4284-af84-9026104961b0\" },\n  \"organizer\": { \"id\": \"a775434d-9876-42f0-9b39-160dfd6defc7\" }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/ticket-bookings/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket-bookings",
+            "save"
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "D1 - past date 400",
       "request": {
         "method": "POST",
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
-        "url": { "raw": "http://localhost:8080/api/ticket-bookings/save", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "save"] },
-        "body": { "mode": "raw", "raw": "{\n  \"showName\": \"Old Show\",\n  \"showDate\": \"2020-01-01\",\n  \"seats\": 2,\n  \"attendee\": { \"id\": \"f2fff814-c690-4284-af84-9026104961b0\" },\n  \"organizer\": { \"id\": \"a775434d-9876-42f0-9b39-160dfd6defc7\" }\n}" }
-      }
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"showName\": \"Old Show\",\n  \"showDate\": \"2020-01-01\",\n  \"seats\": 2,\n  \"attendee\": { \"id\": \"f2fff814-c690-4284-af84-9026104961b0\" },\n  \"organizer\": { \"id\": \"a775434d-9876-42f0-9b39-160dfd6defc7\" }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/ticket-bookings/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket-bookings",
+            "save"
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "D2",
       "request": {
         "method": "PATCH",
-        "url": { "raw": "http://localhost:8080/api/ticket-bookings/eda1d1f1-9c80-41e7-8d68-9f76522c1811/status?status=PAID", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "eda1d1f1-9c80-41e7-8d68-9f76522c1811", "status"], "query": [{ "key": "status", "value": "PAID" }] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket-bookings/eda1d1f1-9c80-41e7-8d68-9f76522c1811/status?status=PAID",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket-bookings",
+            "eda1d1f1-9c80-41e7-8d68-9f76522c1811",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "PAID"
+            }
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "D2 - invalid flow 400",
       "request": {
         "method": "PATCH",
-        "url": { "raw": "http://localhost:8080/api/ticket-bookings/1cf23e5c-92c9-48ba-9ebf-9c700dad8b50/status?status=PENDING", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "1cf23e5c-92c9-48ba-9ebf-9c700dad8b50", "status"], "query": [{ "key": "status", "value": "PENDING" }] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket-bookings/1cf23e5c-92c9-48ba-9ebf-9c700dad8b50/status?status=PENDING",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket-bookings",
+            "1cf23e5c-92c9-48ba-9ebf-9c700dad8b50",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "PENDING"
+            }
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "D3",
       "request": {
         "method": "PUT",
-        "url": { "raw": "http://localhost:8080/api/organizers/4f78b89c-1f87-465c-9a86-d5e02ed801d4/event-types/0ee1e575-87fa-4854-bd78-e83a1e747cf4", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "4f78b89c-1f87-465c-9a86-d5e02ed801d4", "event-types", "0ee1e575-87fa-4854-bd78-e83a1e747cf4"] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/organizers/4f78b89c-1f87-465c-9a86-d5e02ed801d4/event-types/0ee1e575-87fa-4854-bd78-e83a1e747cf4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "organizers",
+            "4f78b89c-1f87-465c-9a86-d5e02ed801d4",
+            "event-types",
+            "0ee1e575-87fa-4854-bd78-e83a1e747cf4"
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "D3 - duplicate 409",
       "request": {
         "method": "PUT",
-        "url": { "raw": "http://localhost:8080/api/organizers/a775434d-9876-42f0-9b39-160dfd6defc7/event-types/0ee1e575-87fa-4854-bd78-e83a1e747cf4", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "a775434d-9876-42f0-9b39-160dfd6defc7", "event-types", "0ee1e575-87fa-4854-bd78-e83a1e747cf4"] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/organizers/a775434d-9876-42f0-9b39-160dfd6defc7/event-types/0ee1e575-87fa-4854-bd78-e83a1e747cf4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "organizers",
+            "a775434d-9876-42f0-9b39-160dfd6defc7",
+            "event-types",
+            "0ee1e575-87fa-4854-bd78-e83a1e747cf4"
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "D4",
       "request": {
         "method": "PATCH",
-        "url": { "raw": "http://localhost:8080/api/organizers/4f78b89c-1f87-465c-9a86-d5e02ed801d4/venue?hallNumber=3", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "4f78b89c-1f87-465c-9a86-d5e02ed801d4", "venue"], "query": [{ "key": "hallNumber", "value": "3" }] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/organizers/4f78b89c-1f87-465c-9a86-d5e02ed801d4/venue?hallNumber=3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "organizers",
+            "4f78b89c-1f87-465c-9a86-d5e02ed801d4",
+            "venue"
+          ],
+          "query": [
+            {
+              "key": "hallNumber",
+              "value": "3"
+            }
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "D4 - venue taken 409",
       "request": {
         "method": "PATCH",
-        "url": { "raw": "http://localhost:8080/api/organizers/4f78b89c-1f87-465c-9a86-d5e02ed801d4/venue?hallNumber=1", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "organizers", "4f78b89c-1f87-465c-9a86-d5e02ed801d4", "venue"], "query": [{ "key": "hallNumber", "value": "1" }] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/organizers/4f78b89c-1f87-465c-9a86-d5e02ed801d4/venue?hallNumber=1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "organizers",
+            "4f78b89c-1f87-465c-9a86-d5e02ed801d4",
+            "venue"
+          ],
+          "query": [
+            {
+              "key": "hallNumber",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "E1",
       "request": {
         "method": "POST",
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
-        "url": { "raw": "http://localhost:8080/api/tickets/save?ticketBookingId=1cf23e5c-92c9-48ba-9ebf-9c700dad8b50", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "tickets", "save"], "query": [{ "key": "ticketBookingId", "value": "1cf23e5c-92c9-48ba-9ebf-9c700dad8b50" }] },
-        "body": { "mode": "raw", "raw": "{\n  \"ticketClass\": \"VIP\",\n  \"seatInfo\": \"Row A seat 12\",\n  \"priceRwf\": 50000\n}" }
-      }
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ticketClass\": \"VIP\",\n  \"seatInfo\": \"Row A seat 12\",\n  \"priceRwf\": 50000\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tickets/save?ticketBookingId=1cf23e5c-92c9-48ba-9ebf-9c700dad8b50",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tickets",
+            "save"
+          ],
+          "query": [
+            {
+              "key": "ticketBookingId",
+              "value": "1cf23e5c-92c9-48ba-9ebf-9c700dad8b50"
+            }
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "E1 - non-PAID 400",
       "request": {
         "method": "POST",
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
-        "url": { "raw": "http://localhost:8080/api/tickets/save?ticketBookingId=55984cc3-f05e-4955-9e9e-0388da4f1301", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "tickets", "save"], "query": [{ "key": "ticketBookingId", "value": "55984cc3-f05e-4955-9e9e-0388da4f1301" }] },
-        "body": { "mode": "raw", "raw": "{\n  \"ticketClass\": \"Regular\",\n  \"seatInfo\": \"Row C seat 5\",\n  \"priceRwf\": 20000\n}" }
-      }
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ticketClass\": \"Regular\",\n  \"seatInfo\": \"Row C seat 5\",\n  \"priceRwf\": 20000\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tickets/save?ticketBookingId=55984cc3-f05e-4955-9e9e-0388da4f1301",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tickets",
+            "save"
+          ],
+          "query": [
+            {
+              "key": "ticketBookingId",
+              "value": "55984cc3-f05e-4955-9e9e-0388da4f1301"
+            }
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "E2",
       "request": {
         "method": "GET",
-        "url": { "raw": "http://localhost:8080/api/tickets/attendee/aline@example.com", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "tickets", "attendee", "aline@example.com"] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/tickets/attendee/aline@example.com",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tickets",
+            "attendee",
+            "aline@example.com"
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "E3",
       "request": {
         "method": "DELETE",
-        "url": { "raw": "http://localhost:8080/api/tickets/delete/f83ebecd-6ed9-4a54-8128-d326652822c4", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "tickets", "delete", "f83ebecd-6ed9-4a54-8128-d326652822c4"] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/tickets/delete/f83ebecd-6ed9-4a54-8128-d326652822c4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tickets",
+            "delete",
+            "f83ebecd-6ed9-4a54-8128-d326652822c4"
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "E3 - booking has tickets 409",
       "request": {
         "method": "DELETE",
-        "url": { "raw": "http://localhost:8080/api/ticket-bookings/delete/1cf23e5c-92c9-48ba-9ebf-9c700dad8b50", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "delete", "1cf23e5c-92c9-48ba-9ebf-9c700dad8b50"] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket-bookings/delete/1cf23e5c-92c9-48ba-9ebf-9c700dad8b50",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket-bookings",
+            "delete",
+            "1cf23e5c-92c9-48ba-9ebf-9c700dad8b50"
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "F1",
       "request": {
         "method": "GET",
-        "url": { "raw": "http://localhost:8080/api/ticket-bookings/stats/by-status", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "stats", "by-status"] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket-bookings/stats/by-status",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket-bookings",
+            "stats",
+            "by-status"
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "F2",
       "request": {
         "method": "PATCH",
-        "url": { "raw": "http://localhost:8080/api/ticket-bookings/cancel-day?organizerId=a775434d-9876-42f0-9b39-160dfd6defc7&date=2026-10-20", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "cancel-day"], "query": [{ "key": "organizerId", "value": "a775434d-9876-42f0-9b39-160dfd6defc7" }, { "key": "date", "value": "2026-10-20" }] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket-bookings/cancel-day?organizerId=a775434d-9876-42f0-9b39-160dfd6defc7&date=2026-10-20",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket-bookings",
+            "cancel-day"
+          ],
+          "query": [
+            {
+              "key": "organizerId",
+              "value": "a775434d-9876-42f0-9b39-160dfd6defc7"
+            },
+            {
+              "key": "date",
+              "value": "2026-10-20"
+            }
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "Bonus +5 - dashboard",
       "request": {
         "method": "GET",
-        "url": { "raw": "http://localhost:8080/api/dashboard/summary", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "dashboard", "summary"] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/dashboard/summary",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "dashboard",
+            "summary"
+          ]
+        }
+      },
+      "response": []
     },
     {
       "name": "Bonus +5 - page",
       "request": {
         "method": "GET",
-        "url": { "raw": "http://localhost:8080/api/ticket-bookings/page?page=0&size=5&sort=showDate,desc", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "ticket-bookings", "page"], "query": [{ "key": "page", "value": "0" }, { "key": "size", "value": "5" }, { "key": "sort", "value": "showDate,desc" }] }
-      }
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket-bookings/page?page=0&size=5&sort=showDate,desc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket-bookings",
+            "page"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "5"
+            },
+            {
+              "key": "sort",
+              "value": "showDate,desc"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
