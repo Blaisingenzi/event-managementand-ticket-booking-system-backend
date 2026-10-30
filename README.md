@@ -1,8 +1,10 @@
 Event Management and Ticket Booking System
 
 Student: NGENZI Blaise
+
 Student ID: 27488
-GROUP : D
+
+GROUP : D (Wednesday)
 
 Project: Event Management and Ticket Booking System
 

@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ngenzi.eventmanagement.entity.Attendee;
 import com.ngenzi.eventmanagement.service.AttendeeService;
-import com.ngenzi.eventmanagement.service.OrganizerService;
 
 @RestController
 @RequestMapping("/api/attendees")
@@ -26,9 +25,6 @@ public class AttendeeController {
 
     @Autowired
     private AttendeeService attendeeService;
-
-    @Autowired
-    private OrganizerService organizerService;
 
     @PostMapping("/save")
     public ResponseEntity<?> saveAttendee(@RequestBody Attendee attendee) {
@@ -68,8 +64,8 @@ public class AttendeeController {
 
     @GetMapping("/of-organizer/{organizerId}")
     public ResponseEntity<?> getAttendeesByOrganizer(@PathVariable UUID organizerId) {
-        Object result = organizerService.getAttendeesByOrganizer(organizerId);
-        if (result instanceof String) return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
-        return new ResponseEntity<>(result, HttpStatus.OK);
+        List<Attendee> attendees = attendeeService.getAttendeesByOrganizer(organizerId);
+        if (attendees == null) return new ResponseEntity<>("The organizer with that id does not exist", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(attendees, HttpStatus.OK);
     }
 }

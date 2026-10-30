@@ -9,12 +9,16 @@ import org.springframework.stereotype.Service;
 
 import com.ngenzi.eventmanagement.entity.Attendee;
 import com.ngenzi.eventmanagement.repository.AttendeeRepository;
+import com.ngenzi.eventmanagement.repository.OrganizerRepository;
 
 @Service
 public class AttendeeService {
 
     @Autowired
     private AttendeeRepository attendeeRepository;
+
+    @Autowired
+    private OrganizerRepository organizerRepository;
 
     public String saveAttendee(Attendee attendee) {
         attendeeRepository.save(attendee);
@@ -49,5 +53,10 @@ public class AttendeeService {
 
     public List<Attendee> getAttendeesByLastName(String lastName) {
         return attendeeRepository.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
+    }
+
+    public List<Attendee> getAttendeesByOrganizer(UUID organizerId) {
+        if (organizerRepository.findById(organizerId).isEmpty()) return null;
+        return organizerRepository.findAttendeesByOrganizerId(organizerId);
     }
 }

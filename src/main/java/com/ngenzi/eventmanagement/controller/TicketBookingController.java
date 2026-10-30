@@ -7,6 +7,10 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -56,6 +60,14 @@ public class TicketBookingController {
         return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
     }
 
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<?> updateStatus(@PathVariable UUID id, @RequestParam BookingStatus status) {
+        String message = ticketBookingService.updateStatus(id, status);
+        if (message.equals("Ticket booking status updated successfully")) return new ResponseEntity<>(message, HttpStatus.OK);
+        if (message.equals("The ticket booking with that id does not exist")) return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteTicketBooking(@PathVariable UUID id) {
         String message = ticketBookingService.deleteTicketBooking(id);
@@ -74,21 +86,24 @@ public class TicketBookingController {
         return new ResponseEntity<>(ticketBookingService.getTicketBookingsBetween(LocalDate.parse(start), LocalDate.parse(end)), HttpStatus.OK);
     }
 
-    @PatchMapping("/{id}/status")
-    public ResponseEntity<?> updateTicketBookingStatus(@PathVariable UUID id, @RequestParam BookingStatus status) {
-        String message = ticketBookingService.updateTicketBookingStatus(id, status);
-        if (message.equals("Ticket booking status updated successfully")) return new ResponseEntity<>(message, HttpStatus.OK);
-        if (message.equals("The ticket booking with that id does not exist")) return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
-        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
-    }
-
     @GetMapping("/stats/by-status")
     public ResponseEntity<List<Object[]>> getBookingsCountByStatus() {
         return new ResponseEntity<>(ticketBookingService.getBookingsCountByStatus(), HttpStatus.OK);
     }
 
+    @GetMapping("/page")
+    public ResponseEntity<Page<TicketBooking>> getTicketBookingsPage(
+            @RequestParam int page,
+            @RequestParam int size,
+            @RequestParam(defaultValue = "showDate,asc") String sort) {
+        String[] parts = sort.split(",");
+        Sort.Direction direction = parts.length > 1 && parts[1].equalsIgnoreCase("desc") ? Sort.Direction.DESC : Sort.Direction.ASC;
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, parts[0]));
+        return new ResponseEntity<>(ticketBookingService.getTicketBookingsPage(pageable), HttpStatus.OK);
+    }
+
     @PatchMapping("/cancel-day")
-    public ResponseEntity<?> cancelByOrganizerAndDate(@RequestParam UUID organizerId, @RequestParam String date) {
-        return new ResponseEntity<>(ticketBookingService.cancelByOrganizerAndDate(organizerId, LocalDate.parse(date)), HttpStatus.OK);
+    public ResponseEntity<?> cancelDay(@RequestParam UUID organizerId, @RequestParam String date) {
+        return new ResponseEntity<>(ticketBookingService.cancelDay(organizerId, LocalDate.parse(date)), HttpStatus.OK);
     }
 }

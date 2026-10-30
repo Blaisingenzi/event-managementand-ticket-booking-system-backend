@@ -7,7 +7,6 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ngenzi.eventmanagement.entity.Attendee;
 import com.ngenzi.eventmanagement.entity.EventType;
 import com.ngenzi.eventmanagement.entity.Organizer;
 import com.ngenzi.eventmanagement.entity.Venue;
@@ -62,32 +61,31 @@ public class OrganizerService {
         return organizerRepository.findByEventTypeName(name);
     }
 
-    public Object getAttendeesByOrganizer(UUID organizerId) {
-        if (organizerRepository.findById(organizerId).isEmpty()) return "The organizer with that id does not exist";
-        return organizerRepository.findAttendeesByOrganizerId(organizerId);
-    }
-
-    public String addEventTypeToOrganizer(UUID organizerId, UUID eventTypeId) {
-        Optional<Organizer> org = organizerRepository.findById(organizerId);
-        if (org.isEmpty()) return "The organizer with that id does not exist";
-        Optional<EventType> et = eventTypeRepository.findById(eventTypeId);
-        if (et.isEmpty()) return "That event type does not exist";
-        if (org.get().getEventTypes().contains(et.get())) return "The organizer already has that event type";
-        org.get().getEventTypes().add(et.get());
-        organizerRepository.save(org.get());
+    public String addEventType(UUID organizerId, UUID eventTypeId) {
+        Optional<Organizer> existingOrganizer = organizerRepository.findById(organizerId);
+        if (existingOrganizer.isEmpty()) return "The organizer with that id does not exist";
+        Optional<EventType> existingEventType = eventTypeRepository.findById(eventTypeId);
+        if (existingEventType.isEmpty()) return "That event type does not exist";
+        Organizer organizer = existingOrganizer.get();
+        EventType eventType = existingEventType.get();
+        if (organizer.getEventTypes().contains(eventType)) return "The organizer already has that event type";
+        organizer.getEventTypes().add(eventType);
+        organizerRepository.save(organizer);
         return "Event type added to the organizer";
     }
 
-    public String moveOrganizerToVenue(UUID organizerId, int hallNumber) {
-        Optional<Organizer> org = organizerRepository.findById(organizerId);
-        if (org.isEmpty()) return "The organizer with that id does not exist";
+    public String changeVenue(UUID organizerId, int hallNumber) {
+        Optional<Organizer> existingOrganizer = organizerRepository.findById(organizerId);
+        if (existingOrganizer.isEmpty()) return "The organizer with that id does not exist";
         Optional<Venue> venue = venueRepository.findByHallNumber(hallNumber);
         if (venue.isEmpty()) return "The venue with that hallNumber does not exist";
-        if (organizerRepository.existsByVenueId(venue.get().getId()) &&
-                !venue.get().getId().equals(org.get().getVenue().getId()))
+        Organizer organizer = existingOrganizer.get();
+        Venue current = organizer.getVenue();
+        if (organizerRepository.existsByVenue(venue.get())
+                && (current == null || !venue.get().equals(current)))
             return "That venue is taken by another organizer";
-        org.get().setVenue(venue.get());
-        organizerRepository.save(org.get());
+        organizer.setVenue(venue.get());
+        organizerRepository.save(organizer);
         return "Venue changed successfully";
     }
 }

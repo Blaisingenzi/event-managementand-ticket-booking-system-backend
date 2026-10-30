@@ -1,15 +1,16 @@
 package com.ngenzi.eventmanagement.repository;
 
-import java.util.UUID;
-
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.ngenzi.eventmanagement.entity.Attendee;
 import com.ngenzi.eventmanagement.entity.Organizer;
+import com.ngenzi.eventmanagement.entity.Venue;
 
 @Repository
 public interface OrganizerRepository extends JpaRepository<Organizer, UUID> {
@@ -18,7 +19,7 @@ public interface OrganizerRepository extends JpaRepository<Organizer, UUID> {
     List<Organizer> findByEventTypeName(@Param("name") String name);
 
     @Query("SELECT DISTINCT tb.attendee FROM TicketBooking tb WHERE tb.organizer.id = :organizerId")
-    List<com.ngenzi.eventmanagement.entity.Attendee> findAttendeesByOrganizerId(@Param("organizerId") UUID organizerId);
+    List<Attendee> findAttendeesByOrganizerId(@Param("organizerId") UUID organizerId);
 
-    boolean existsByVenueId(UUID venueId);
+    boolean existsByVenue(Venue venue);
 }

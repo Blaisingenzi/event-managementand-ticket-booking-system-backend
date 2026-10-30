@@ -64,16 +64,16 @@ public class OrganizerController {
     }
 
     @PutMapping("/{organizerId}/event-types/{eventTypeId}")
-    public ResponseEntity<?> addEventTypeToOrganizer(@PathVariable UUID organizerId, @PathVariable UUID eventTypeId) {
-        String message = organizerService.addEventTypeToOrganizer(organizerId, eventTypeId);
+    public ResponseEntity<?> addEventType(@PathVariable UUID organizerId, @PathVariable UUID eventTypeId) {
+        String message = organizerService.addEventType(organizerId, eventTypeId);
         if (message.equals("Event type added to the organizer")) return new ResponseEntity<>(message, HttpStatus.OK);
         if (message.equals("The organizer already has that event type")) return new ResponseEntity<>(message, HttpStatus.CONFLICT);
         return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
     }
 
     @PatchMapping("/{organizerId}/venue")
-    public ResponseEntity<?> moveOrganizerToVenue(@PathVariable UUID organizerId, @RequestParam int hallNumber) {
-        String message = organizerService.moveOrganizerToVenue(organizerId, hallNumber);
+    public ResponseEntity<?> changeVenue(@PathVariable UUID organizerId, @RequestParam int hallNumber) {
+        String message = organizerService.changeVenue(organizerId, hallNumber);
         if (message.equals("Venue changed successfully")) return new ResponseEntity<>(message, HttpStatus.OK);
         if (message.equals("That venue is taken by another organizer")) return new ResponseEntity<>(message, HttpStatus.CONFLICT);
         return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);

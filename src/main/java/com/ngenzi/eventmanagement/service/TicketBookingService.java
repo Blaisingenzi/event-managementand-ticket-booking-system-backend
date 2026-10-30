@@ -6,7 +6,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ngenzi.eventmanagement.entity.BookingStatus;
 import com.ngenzi.eventmanagement.entity.TicketBooking;
@@ -25,8 +28,8 @@ public class TicketBookingService {
     public String saveTicketBooking(TicketBooking ticketBooking) {
         if (ticketBooking.getShowDate().isBefore(LocalDate.now()))
             return "Ticket booking date cannot be in the past";
-        if (ticketBookingRepository.existsByOrganizerIdAndShowDateAndStatusNot(
-                ticketBooking.getOrganizer().getId(), ticketBooking.getShowDate(), BookingStatus.CANCELLED))
+        if (ticketBookingRepository.existsByOrganizerAndShowDateAndStatusNot(
+                ticketBooking.getOrganizer(), ticketBooking.getShowDate(), BookingStatus.CANCELLED))
             return "Organizer already has a show booked on that date";
         ticketBooking.setStatus(BookingStatus.PENDING);
         ticketBookingRepository.save(ticketBooking);
@@ -54,15 +57,16 @@ public class TicketBookingService {
         return "Ticket booking updated successfully";
     }
 
-    public String updateTicketBookingStatus(UUID id, BookingStatus newStatus) {
+    public String updateStatus(UUID id, BookingStatus newStatus) {
         Optional<TicketBooking> existing = ticketBookingRepository.findById(id);
         if (existing.isEmpty()) return "The ticket booking with that id does not exist";
-        BookingStatus current = existing.get().getStatus();
+        TicketBooking booking = existing.get();
+        BookingStatus current = booking.getStatus();
         boolean allowed = (current == BookingStatus.PENDING && (newStatus == BookingStatus.RESERVED || newStatus == BookingStatus.CANCELLED))
                 || (current == BookingStatus.RESERVED && (newStatus == BookingStatus.PAID || newStatus == BookingStatus.CANCELLED));
         if (!allowed) return "Cannot change status from " + current + " to " + newStatus;
-        existing.get().setStatus(newStatus);
-        ticketBookingRepository.save(existing.get());
+        booking.setStatus(newStatus);
+        ticketBookingRepository.save(booking);
         return "Ticket booking status updated successfully";
     }
 
@@ -83,12 +87,16 @@ public class TicketBookingService {
     }
 
     public List<Object[]> getBookingsCountByStatus() {
-        return ticketBookingRepository.countByStatus();
+        return ticketBookingRepository.countByStatusGrouped();
     }
 
-    @org.springframework.transaction.annotation.Transactional
-    public String cancelByOrganizerAndDate(UUID organizerId, LocalDate date) {
-        int count = ticketBookingRepository.cancelByOrganizerAndDate(organizerId, date);
+    public Page<TicketBooking> getTicketBookingsPage(Pageable pageable) {
+        return ticketBookingRepository.findAll(pageable);
+    }
+
+    @Transactional
+    public String cancelDay(UUID organizerId, LocalDate date) {
+        int count = ticketBookingRepository.cancelDayBookings(organizerId, date);
         return count + " ticket bookings cancelled";
     }
 }
